@@ -14,7 +14,7 @@ set( ROS_CXX_DEPENDENCIES
 
 # Find catkin and all required ROS components
 find_package(catkin REQUIRED COMPONENTS ${ROS_CXX_DEPENDENCIES})
-find_package(PCL REQUIRED QUIET)
+find_package(PCL 1.8 REQUIRED QUIET)
 
 # Set include directories
 include_directories(include ${catkin_INCLUDE_DIRS} ${PCL_INCLUDE_DIRS})
