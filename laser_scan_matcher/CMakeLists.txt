@@ -14,7 +14,7 @@ set( ROS_CXX_DEPENDENCIES
 
 # Find catkin and all required ROS components
 find_package(catkin REQUIRED COMPONENTS ${ROS_CXX_DEPENDENCIES} rostest)
-find_package(PCL 1.8 REQUIRED QUIET)
+find_package(PCL 1.8 REQUIRED QUIET COMPONENTS io common)
 
 # Find csm project
 find_package(PkgConfig)
@@ -40,11 +40,11 @@ add_dependencies(laser_scan_matcher ${csm_EXPORTED_TARGETS} ${catkin_EXPORTED_TA
 
 #Create nodelet
 add_library(laser_scan_matcher_nodelet src/laser_scan_matcher_nodelet.cpp)
-target_link_libraries(laser_scan_matcher_nodelet laser_scan_matcher)
+target_link_libraries(laser_scan_matcher_nodelet laser_scan_matcher ${PCL_LIBRARIES})
 
 #Create node
 add_executable(laser_scan_matcher_node src/laser_scan_matcher_node.cpp)
-target_link_libraries( laser_scan_matcher_node laser_scan_matcher )
+target_link_libraries( laser_scan_matcher_node laser_scan_matcher ${PCL_LIBRARIES} )
 
 #Install library
 install(TARGETS laser_scan_matcher laser_scan_matcher_nodelet
