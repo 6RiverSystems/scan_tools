@@ -1,4 +1,4 @@
-<package>
+<package format="2">
   <name>laser_scan_sparsifier</name>
   <version>0.3.2</version>
   <description>
@@ -19,9 +19,9 @@
   <build_depend>nodelet</build_depend>
   <build_depend>sensor_msgs</build_depend>
 
-  <run_depend>roscpp</run_depend>
-  <run_depend>nodelet</run_depend>
-  <run_depend>sensor_msgs</run_depend>
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>nodelet</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
 
   <export>
     <nodelet plugin="${prefix}/laser_scan_sparsifier_nodelet.xml" />

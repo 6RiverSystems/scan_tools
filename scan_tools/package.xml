@@ -1,4 +1,4 @@
-<package>
+<package format="2">
   <name>scan_tools</name>
   <version>0.3.2</version>
 
@@ -17,13 +17,13 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
-  <run_depend>laser_ortho_projector</run_depend>
-  <run_depend>laser_scan_matcher</run_depend>
-  <run_depend>laser_scan_sparsifier</run_depend>
-  <run_depend>laser_scan_splitter</run_depend>
-  <run_depend>ncd_parser</run_depend>
-  <run_depend>scan_to_cloud_converter</run_depend>
-  <run_depend>polar_scan_matcher</run_depend>
+  <exec_depend>laser_ortho_projector</exec_depend>
+  <exec_depend>laser_scan_matcher</exec_depend>
+  <exec_depend>laser_scan_sparsifier</exec_depend>
+  <exec_depend>laser_scan_splitter</exec_depend>
+  <exec_depend>ncd_parser</exec_depend>
+  <exec_depend>scan_to_cloud_converter</exec_depend>
+  <exec_depend>polar_scan_matcher</exec_depend>
 
   <export>
     <metapackage/>
