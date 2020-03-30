@@ -337,7 +337,7 @@ void LaserScanMatcher::initParams()
 
 void LaserScanMatcher::imuCallback(const sensor_msgs::Imu::ConstPtr& imu_msg)
 {
-  boost::mutex::scoped_lock(mutex_);
+  boost::mutex::scoped_lock lock(mutex_);
   latest_imu_msg_ = *imu_msg;
   if (!received_imu_)
   {
@@ -348,7 +348,7 @@ void LaserScanMatcher::imuCallback(const sensor_msgs::Imu::ConstPtr& imu_msg)
 
 void LaserScanMatcher::odomCallback(const nav_msgs::Odometry::ConstPtr& odom_msg)
 {
-  boost::mutex::scoped_lock(mutex_);
+  boost::mutex::scoped_lock lock(mutex_);
   latest_odom_msg_ = *odom_msg;
   if (!received_odom_)
   {
@@ -359,7 +359,7 @@ void LaserScanMatcher::odomCallback(const nav_msgs::Odometry::ConstPtr& odom_msg
 
 void LaserScanMatcher::velCallback(const geometry_msgs::Twist::ConstPtr& twist_msg)
 {
-  boost::mutex::scoped_lock(mutex_);
+  boost::mutex::scoped_lock lock(mutex_);
   latest_vel_msg_ = *twist_msg;
 
   received_vel_ = true;
@@ -367,7 +367,7 @@ void LaserScanMatcher::velCallback(const geometry_msgs::Twist::ConstPtr& twist_m
 
 void LaserScanMatcher::velStmpCallback(const geometry_msgs::TwistStamped::ConstPtr& twist_msg)
 {
-  boost::mutex::scoped_lock(mutex_);
+  boost::mutex::scoped_lock lock(mutex_);
   latest_vel_msg_ = twist_msg->twist;
 
   received_vel_ = true;
@@ -798,7 +798,7 @@ bool LaserScanMatcher::getBaseToLaserTf (const std::string& frame_id)
 void LaserScanMatcher::getPrediction(double& pr_ch_x, double& pr_ch_y,
                                      double& pr_ch_a, double dt)
 {
-  boost::mutex::scoped_lock(mutex_);
+  boost::mutex::scoped_lock lock(mutex_);
 
   // **** base case - no input available, use zero-motion model
   pr_ch_x = 0.0;
